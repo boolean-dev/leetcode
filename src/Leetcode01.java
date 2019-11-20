@@ -34,21 +34,13 @@ public class Leetcode01 {
         System.out.println(result[0] + " " + result[1]);
     }
 
-    /*public int[] twoSum(int[] nums, int target) {
-        int[] result = new int[2];
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
-                    result[0] = i;
-                    result[1] = j;
-                    return result;
-                }
-            }
-        }
 
-        return null;
-    }*/
-
+    /**
+     * hash值方法
+     * @param nums
+     * @param target
+     * @return
+     */
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
 
@@ -63,4 +55,30 @@ public class Leetcode01 {
         }
         return result;
     }
+
+    // ----------------------------------------
+    // 以下不是最优解
+
+    /**
+     * 暴力法
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] twoSum1(int[] nums, int target) {
+        int[] result = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    result[0] = i;
+                    result[1] = j;
+                    return result;
+                }
+            }
+        }
+
+        return null;
+    }
+
+
 }
