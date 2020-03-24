@@ -42,7 +42,12 @@ public class MyLink {
         pointer.next = node;
 
     }
-    
+
+    /**
+     * 将元素添加到指定的下标
+     * @param data  数据
+     * @param index 下标
+     */
     public void add(int data, int index) {
         // 得到链表长度
         int length = length();
@@ -53,7 +58,6 @@ public class MyLink {
 
         Node node = new Node(data);
         if (index == 0) {
-//            Node headNode = head;
             node.next = head;
             head = node;
             return;
@@ -278,9 +282,7 @@ public class MyLink {
             preNode.next = slow.next;
         }
 
-
         return true;
-
     }
 
     /**
@@ -291,13 +293,18 @@ public class MyLink {
      * @return  中间节点数据
      */
     public int findMid() {
+
+        // 如果为空链表，则返回-1
         if (head == null) {
             return -1;
-
         }
+
+        // 如果节点只有一个，则直接返回第一个
         if (head.next == null) {
             return head.data;
         }
+
+        // 快慢指针查找中点
         boolean isSinger = true;
         Node slow = head;
         Node fast = head;
@@ -309,6 +316,8 @@ public class MyLink {
             slow = slow.next;
             fast = fast.next.next;
         }
+
+        // 判断长度为双还是为单
         if (isSinger) {
             return slow.data;
         }else {
@@ -316,6 +325,10 @@ public class MyLink {
         }
     }
 
+    /**
+     * 计算链表的长度
+     * @return  链表的长度
+     */
     public int length() {
         int length = 0;
 
